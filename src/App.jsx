@@ -463,8 +463,14 @@ const App = () => {
     <div className="w-full flex flex-col items-center">
       <ScrollToTop show={scrolled} />
       {/* Stationary Header at the very top */}
-      <div className={`fixed top-0 left-0 right-0 z-100 flex justify-center pointer-events-none transition-all duration-300 ${scrolled ? 'pt-2' : 'pt-0'}`}>
-        <div className={`w-full max-w-[1440px] pointer-events-auto px-4 md:px-8 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm rounded-full border border-gray-100/50 mx-4 md:mx-12' : ''}`}>
+      <div className={`fixed top-0 left-0 right-0 z-100 flex justify-center pointer-events-none transition-all duration-500 ${scrolled ? 'pt-2' : 'pt-0'}`}>
+        <div
+          className={`w-full max-w-[1440px] pointer-events-auto px-4 md:px-8 transition-all duration-500 border rounded-full
+            ${scrolled
+              ? 'bg-white/80 backdrop-blur-xl border-gray-100 shadow-sm mx-4 md:mx-12'
+              : 'bg-white/0 backdrop-blur-none border-transparent shadow-none mx-0 md:mx-0'
+            }`}
+        >
           <Navbar scrolled={scrolled} />
         </div>
       </div>

@@ -1,5 +1,6 @@
 {
   "name": "portfolio-react-tailwind",
+  "homepage": "https://franckfone.github.io/FranckfonePortfolio/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,8 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
