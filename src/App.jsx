@@ -161,7 +161,7 @@ const Hero = () => (
     </Reveal>
 
     <Reveal delay={0.2}>
-      <h1 className="text-2xl md:text-6xl font-black italic tracking-normal max-w-4xl leading-[1.4] mb-6 px-5 pr-10">
+      <h1 className="text-2xl md:text-5xl font-black italic tracking-normal max-w-4xl leading-[1.4] mb-6 px-5 pr-10">
         C'est <span className="text-gradient p-2">Franck Fone</span><br />
         Développeur Full Stack & Data Analyst.
       </h1>
@@ -193,7 +193,7 @@ const Hero = () => (
 );
 
 const About = () => (
-  <section id="about" className="py-20 px-6 md:px-12 relative overflow-hidden">
+  <section id="about" className="py-20 px-6 md:px-12 relative overflow-hidden bg-accent/[0.02] border-y border-white/5">
     <div className="max-w-6xl mx-auto z-10 relative">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <Reveal>
@@ -313,7 +313,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6 md:px-12 border-y border-white/5">
+    <section id="experience" className="py-20 px-6 md:px-12 bg-accent/[0.02] border-y border-white/5">
       <Reveal>
         <SectionHeader tag="Expériences" title="Parcours Professionnel." />
       </Reveal>
@@ -394,7 +394,7 @@ const Education = () => {
 };
 
 const Contact = () => (
-  <section id="contact" className="py-20 px-6 md:px-12 bg-white/2 rounded-[4rem] mx-6 mb-8 border border-white/5 relative overflow-hidden group">
+  <section id="contact" className="py-20 px-6 md:px-12 bg-accent/[0.02] rounded-[4rem] mx-6 mb-8 border border-white/5 relative overflow-hidden group">
     <div className="absolute inset-0 bg-gradient-to-br from-[#00f5d4]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
     <Reveal>
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
