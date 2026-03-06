@@ -93,7 +93,7 @@ const Navbar = ({ scrolled }) => {
         </div>
 
         <div className="hidden lg:flex gap-6 items-center border-l border-white/10 pl-6">
-          <a href="https://linkedin.com/in/franckfone" className="text-sm font-black text-gray-400 hover:text-accent transition-colors tracking-widest uppercase">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/franck-fone-fotsi-381ba42b5/" className="text-sm font-black text-gray-400 hover:text-accent transition-colors tracking-widest uppercase">LinkedIn</a>
           <a href="https://github.com/franckfone" className="text-gray-400 hover:text-accent transition-colors group">
             <GithubIcon size={16} />
           </a>
@@ -129,7 +129,7 @@ const Navbar = ({ scrolled }) => {
             ))}
             <div className="w-12 h-px bg-white/5 my-2"></div>
             <div className="flex gap-10">
-              <a href="https://linkedin.com/in/franckfone" className="text-gray-400 hover:text-[#00f5d4] transition-colors">
+              <a href="https://www.linkedin.com/in/franck-fone-fotsi-381ba42b5/" className="text-gray-400 hover:text-[#00f5d4] transition-colors">
                 <Linkedin size={20} />
               </a>
               <a href="https://github.com/franckfone" className="text-gray-400 hover:text-[#00f5d4] transition-colors">
@@ -147,14 +147,15 @@ const Hero = () => (
   <section className="pt-12 pb-20 px-6 text-center flex flex-col items-center">
     <Reveal>
       <div className="relative mb-10 mx-auto">
-        <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-xl relative z-10">
+        <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-xl relative z-10 data-heartbeat">
           <img
             src={profileImg}
             alt="Franck Fone Fotsi"
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute -top-1 -right-14 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-100 flex items-center gap-2">
+        <div className="absolute -top-1 -right-14 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-100 flex items-center gap-2 z-20">
+          <div className="w-1.5 h-1.5 rounded-full bg-accent ping-accent" />
           <span className="text-[10px] font-bold">Franck 👋</span>
         </div>
       </div>
@@ -214,7 +215,7 @@ const About = () => (
             { label: 'Stats %', sub: 'Expert Data' }
           ].map((stat, i) => (
             <Reveal key={i} delay={0.1 * i}>
-              <div className="p-8 glow-card rounded-3xl h-full flex flex-col justify-center border-white/5">
+              <div className={`p-8 glow-card rounded-3xl h-full flex flex-col justify-center border-white/5 ${stat.sub === 'Expert Data' ? 'data-heartbeat' : ''}`}>
                 <div className="text-2xl font-black text-white mb-1">{stat.label}</div>
                 <div className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">{stat.sub}</div>
               </div>
@@ -271,7 +272,8 @@ const Services = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {expertises.map((exp, i) => (
           <Reveal key={i} delay={0.1 * i}>
-            <div className="flex flex-col gap-6 p-8 glow-card rounded-3xl h-full group">
+            <div className="flex flex-col gap-6 p-8 glow-card rounded-3xl h-full group scanning-container">
+              <div className="scanning-line"></div>
               <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-[#00f5d4]/30 group-hover:bg-[#00f5d4]/5 transition-all">
                 <exp.icon size={28} className="text-white group-hover:text-[#00f5d4] transition-colors" />
               </div>
@@ -383,7 +385,7 @@ const Education = () => {
               </div>
               <div className="mt-8">
                 <p className="text-sm font-bold text-gray-400">{edu.school}</p>
-                {edu.current && <div className="mt-4 flex items-center gap-2 text-[10px] font-black text-[#00f5d4]"><div className="w-1.5 h-1.5 rounded-full bg-[#00f5d4] animate-pulse" /> ACTUEL</div>}
+                {edu.current && <div className="mt-4 flex items-center gap-2 text-[10px] font-black text-[#00f5d4]"><div className="w-1.5 h-1.5 rounded-full bg-[#00f5d4] ping-accent" /> ACTUEL</div>}
               </div>
             </div>
           </Reveal>
@@ -423,7 +425,7 @@ const Footer = () => (
     <p className="text-xs text-gray-500 font-bold tracking-widest uppercase">© {new Date().getFullYear()} Franck Fone. SYSTEM_INIT_SUCCESS</p>
     <div className="flex gap-10">
       {[
-        { name: 'LinkedIn', url: 'https://linkedin.com/in/franckfone' },
+        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/franck-fone-fotsi-381ba42b5/' },
         { name: 'Github', url: 'https://github.com/franckfone' },
         { name: 'Instagram', url: '#' }
       ].map((social) => (
@@ -465,12 +467,12 @@ const App = () => {
     <div className="w-full flex flex-col items-center">
       <ScrollToTop show={scrolled} />
       {/* Stationary Header at the very top */}
-      <div className={`fixed top-0 left-0 right-0 z-100 flex justify-center pointer-events-none transition-all duration-500 ${scrolled ? 'pt-2' : 'pt-0'}`}>
+      <div className="fixed top-0 left-0 right-0 z-100 flex justify-center pointer-events-none">
         <div
-          className={`w-full max-w-[1440px] pointer-events-auto px-4 md:px-8 transition-all duration-500 border rounded-full
+          className={`w-full max-w-[1440px] pointer-events-auto px-4 md:px-8 transition-all duration-500 border
             ${scrolled
-              ? 'bg-[#08080a]/80 backdrop-blur-xl border-white/10 shadow-2xl mx-4 md:mx-12'
-              : 'bg-transparent backdrop-blur-none border-transparent shadow-none mx-0 md:mx-0'
+              ? 'bg-[#08080a]/80 backdrop-blur-xl border-white/5 shadow-2xl mx-0 rounded-none border-t-0'
+              : 'bg-transparent backdrop-blur-none border-transparent shadow-none mx-0 rounded-full'
             }`}
         >
           <Navbar scrolled={scrolled} />
