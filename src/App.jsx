@@ -16,6 +16,24 @@ import arch3 from './assets/images/Archeo-IT-3.png';
 import arch4 from './assets/images/Archeo-IT-4.png';
 import arch5 from './assets/images/Archeo-IT-5.png';
 import arch6 from './assets/images/Archeo-IT-6.png';
+
+// Power BI Project Images
+import pbi1 from './assets/images/image projets PBI/image projets PBI/Capture1 franck3ibi.png';
+import pbi2 from './assets/images/image projets PBI/image projets PBI/Capture 2 franck3ibi.png';
+import pbi3 from './assets/images/image projets PBI/image projets PBI/Capture d\'écran 2024-06-24 130819.png';
+import pbi4 from './assets/images/image projets PBI/image projets PBI/Capture d\'écran 2024-06-24 132642.png';
+import pbi5 from './assets/images/image projets PBI/image projets PBI/Capture d\'écran 2024-06-24 213752.png';
+import pbi6 from './assets/images/image projets PBI/image projets PBI/Capture d\'écran histogramme1.png';
+import pbi7 from './assets/images/image projets PBI/image projets PBI/c8.png';
+import pbi8 from './assets/images/image projets PBI/image projets PBI/capture 0.png';
+// Ecoservice Project Images
+import eco1 from './assets/images/images projets Ecoservices/Capture d’écran 2026-03-08 114456.png';
+import eco2 from './assets/images/images projets Ecoservices/Capture d’écran 2026-03-08 114607.png';
+import eco3 from './assets/images/images projets Ecoservices/Capture d’écran 2026-03-08 114651.png';
+import eco4 from './assets/images/images projets Ecoservices/Capture d’écran 2026-03-08 114812.png';
+import eco5 from './assets/images/images projets Ecoservices/Formulaire De connexion .png';
+import eco6 from './assets/images/images projets Ecoservices/Nos Services.png';
+import eco7 from './assets/images/images projets Ecoservices/nous contacter.png';
 import cvFile from './assets/CV_FRANCK_FONE_FOTSI @.pdf';
 
 // --- Components ---
@@ -231,7 +249,7 @@ const Hero = () => (
 
 const About = () => (
   <section id="about" className="py-20 px-6 md:px-12 relative overflow-hidden bg-accent/5 backdrop-blur-3xl border-y border-white/5">
-    <div className="max-w-6xl mx-auto z-10 relative">
+    <div className="max-w-[95%] mx-auto z-10 relative">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <Reveal>
           <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#00f5d4] mb-6 inline-block">À propos de moi</span>
@@ -305,7 +323,7 @@ const Services = () => {
           title="Des outils modernes pour des solutions à la pointe."
         />
       </Reveal>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[95%] mx-auto">
         {expertises.map((exp, i) => (
           <Reveal key={i} delay={0.1 * i}>
             <div className="flex flex-col gap-6 p-8 glow-card rounded-3xl h-full group">
@@ -324,149 +342,135 @@ const Services = () => {
   );
 };
 
-const Projects = () => {
-  const [selectedProject, setSelectedProject] = React.useState(null);
-  const [currentImgIndex, setCurrentImgIndex] = React.useState(0);
+const Projects = ({ selectedProject, setSelectedProject, currentImgIndex, setCurrentImgIndex }) => {
+  const [activeCategory, setActiveCategory] = React.useState("Tous");
 
-  React.useEffect(() => {
-    if (selectedProject) {
-      document.body.classList.add('no-scroll');
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
-  }, [selectedProject]);
+
+
+  const categories = ["Tous", "Programmation & DevOps", "Analyse des données"];
 
   const projects = [
     {
       title: "Archeo-IT",
+      category: "Programmation & DevOps",
       tag: "Patrimoine & Numérique",
       description: "Plateforme web pour une association dédiée à l'archéologie. Promotion du patrimoine français via des fouilles, conférences mensuelles et stages d'expérimentation.",
       tech: ["HTML", "CSS", "JS", "PHP"],
       images: [arch1, arch2, arch3, arch4, arch5, arch6]
     },
     {
+      title: "Dashboard Power BI",
+      category: "Analyse des données",
+      tag: "Business Intelligence",
+      description: "Conception et réalisation de dashboards interactifs pour l'analyse de performance. Visualisation de données complexes et aide à la décision stratégique basée sur des KPIs métiers.",
+      tech: ["Power BI", "DAX", "SQL", "ETL"],
+      images: [pbi1, pbi2, pbi3, pbi4, pbi5, pbi6, pbi7, pbi8]
+    },
+    {
+      title: "Cloud Infrastructure",
+      category: "Programmation & DevOps",
+      tag: "DevOps",
+      description: "Architecture de déploiement continu utilisant Docker et GitHub Actions pour des applications à haute disponibilité.",
+      tech: ["Docker", "YAML", "CI/CD"],
+      images: []
+    },
+    {
       title: "Data Tracker Pro",
+      category: "Analyse des données",
       tag: "Analyse de Données",
       description: "Outil interne de suivi et de fiabilisation des flux de données opérationnels. Dashboard interactif et reporting automatisé.",
       tech: ["Python", "SQL", "React"],
       images: []
     },
     {
-      title: "Cloud Infrastructure",
-      tag: "DevOps",
-      description: "Architecture de déploiement continu utilisant Docker et GitHub Actions pour des applications à haute disponibilité.",
-      tech: ["Docker", "YAML", "CI/CD"],
-      images: []
+      title: "Ecoservice",
+      category: "Programmation & DevOps",
+      tag: "Application Web",
+      description: "Solution logicielle complète pour la gestion des services écologiques. Développement d'une interface utilisateur intuitive et d'une architecture orientée services.",
+      tech: ["React JS", "Node.js", "TailwindCSS"],
+      images: [eco1, eco2, eco3, eco4, eco5, eco6, eco7]
     }
   ];
 
-  const handleDownload = (imgUrl) => {
-    const link = document.createElement('a');
-    link.href = imgUrl;
-    link.download = `project-image-${currentImgIndex + 1}.png`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const filteredProjects = activeCategory === "Tous"
+    ? projects
+    : projects.filter(p => p.category === activeCategory);
+
+
 
   return (
     <section id="projets" className="py-20 px-6 md:px-12 bg-accent/5 backdrop-blur-3xl border-y border-white/5">
       <Reveal>
         <SectionHeader tag="Mes Réalisations" title="Projets Professionnels." />
       </Reveal>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {projects.map((project, i) => (
-          <Reveal key={i} delay={0.1 * i}>
-            <div className="glow-card rounded-[2.5rem] overflow-hidden group h-full flex flex-col border border-white/5">
-              <div className="aspect-video bg-white/5 relative overflow-hidden">
-                {project.images.length > 0 ? (
-                  <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center opacity-10">
-                    <Database size={64} />
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-                  {project.images.length > 0 && (
-                    <Button variant="outline" className="scale-75 group-hover:scale-100 transition-transform duration-500" onClick={() => {
-                      setSelectedProject(project);
-                      setCurrentImgIndex(0);
-                    }}>
-                      <Maximize2 size={16} /> Regarder les images
-                    </Button>
+
+      {/* Filter Tabs */}
+      <Reveal delay={0.1}>
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all duration-300 border ${activeCategory === cat
+                ? "bg-accent text-black border-accent shadow-[0_0_15px_rgba(0,245,212,0.4)] scale-105"
+                : "bg-white/5 text-gray-400 border-white/10 hover:bg-white/10 hover:text-white"
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </Reveal>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-[95%] mx-auto">
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project, i) => (
+            <motion.div
+              layout
+              key={project.title}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="h-full"
+            >
+              <div className="glow-card rounded-2xl overflow-hidden group h-full flex flex-col border border-white/5">
+                <div className="aspect-video bg-white/5 relative overflow-hidden">
+                  {project.images.length > 0 ? (
+                    <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center opacity-10">
+                      <Database size={40} />
+                    </div>
                   )}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                    {project.images.length > 0 && (
+                      <Button variant="outline" className="scale-75 group-hover:scale-100 transition-transform duration-500 py-1.5 px-3 text-[9px]" onClick={() => {
+                        setSelectedProject(project);
+                        setCurrentImgIndex(0);
+                      }}>
+                        <Maximize2 size={12} /> Voir images
+                      </Button>
+                    )}
+                  </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <span className="text-[8px] font-black text-accent uppercase tracking-[0.2em] mb-2 block">{project.tag}</span>
+                  <h3 className="text-lg font-black mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
+                  <p className="text-gray-400 text-[11px] leading-relaxed mb-4 flex-1 line-clamp-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map(t => (
+                      <span key={t} className="text-[10px] font-black px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/50">{t}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="p-8 flex-1 flex flex-col">
-                <span className="text-[10px] font-black text-accent uppercase tracking-[0.2em] mb-4 block">{project.tag}</span>
-                <h3 className="text-2xl font-black mb-4 group-hover:text-accent transition-colors">{project.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-1">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map(t => (
-                    <span key={t} className="text-[10px] font-black px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/50">{t}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        ))}
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
 
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9998] bg-black/98 border-none flex flex-col items-center justify-start p-4 md:p-10 pt-32 overflow-y-auto"
-          >
-            <button
-              className="fixed top-24 right-6 md:top-32 md:right-12 w-16 h-16 rounded-full bg-accent text-black shadow-[0_0_50px_rgba(0,245,212,0.6)] flex items-center justify-center z-[9999] transition-all hover:scale-110 active:scale-95 group border-none"
-              onClick={() => setSelectedProject(null)}
-              title="Fermer"
-            >
-              <X size={32} strokeWidth={3} className="transition-transform group-hover:rotate-90" />
-            </button>
 
-            <div className="w-full max-w-6xl relative">
-              <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-white/5">
-                <img
-                  src={selectedProject.images[currentImgIndex]}
-                  className="w-full h-full object-contain"
-                  alt={`Project image ${currentImgIndex + 1}`}
-                />
-
-                <div className="absolute inset-0 flex items-center justify-between px-6 pointer-events-none">
-                  <button
-                    className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center text-white pointer-events-auto hover:bg-accent hover:text-black transition-all"
-                    onClick={() => setCurrentImgIndex(prev => (prev > 0 ? prev - 1 : selectedProject.images.length - 1))}
-                  >
-                    <ChevronLeft size={24} />
-                  </button>
-                  <button
-                    className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center text-white pointer-events-auto hover:bg-accent hover:text-black transition-all"
-                    onClick={() => setCurrentImgIndex(prev => (prev < selectedProject.images.length - 1 ? prev + 1 : 0))}
-                  >
-                    <ChevronRight size={24} />
-                  </button>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6 bg-white/5 p-8 rounded-3xl border border-white/10">
-                <div>
-                  <h4 className="text-2xl font-black mb-2">{selectedProject.title}</h4>
-                  <p className="text-gray-400 text-sm">Image {currentImgIndex + 1} sur {selectedProject.images.length}</p>
-                </div>
-                <div className="flex gap-4">
-                  <Button variant="outline" className="h-12 px-8" onClick={() => handleDownload(selectedProject.images[currentImgIndex])}>
-                    <DownloadCloud size={18} /> Télécharger
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
@@ -501,7 +505,7 @@ const Experience = () => {
       <Reveal>
         <SectionHeader tag="Expériences" title="Parcours Professionnel." />
       </Reveal>
-      <div className="max-w-6xl mx-auto space-y-8">
+      <div className="max-w-[95%] mx-auto space-y-8">
         {jobs.map((job, i) => (
           <Reveal key={i} y={50}>
             <div className="flex flex-col md:flex-row justify-between gap-6 p-10 glow-card rounded-[2.5rem] group">
@@ -557,7 +561,7 @@ const Education = () => {
       <Reveal>
         <SectionHeader tag="Formation" title="Cursus Académique." />
       </Reveal>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[95%] mx-auto">
         {degrees.map((edu, i) => (
           <Reveal key={i} delay={0.1 * i}>
             <div className={`p-8 rounded-3xl border h-full transition-all group hover:-translate-y-2 ${edu.current ? 'border-[#00f5d4]/50 bg-[#00f5d4]/5 shadow-[0_0_30px_rgba(0,245,212,0.1)]' : 'border-white/5 bg-white/5'} flex flex-col justify-between`}>
@@ -581,7 +585,7 @@ const Contact = () => (
   <section id="contact" className="py-20 px-6 md:px-12 border-white/5 relative overflow-hidden group">
     <div className="absolute inset-0 bg-gradient-to-br from-[#00f5d4]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
     <Reveal>
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
+      <div className="max-w-[95%] mx-auto text-center flex flex-col items-center relative z-10">
         <div className="w-20 h-20 bg-[#00f5d4]/10 rounded-3xl flex items-center justify-center mb-10 border border-[#00f5d4]/20 shadow-[0_0_30px_rgba(0,245,212,0.1)]">
           <Mail size={36} className="text-[#00f5d4]" strokeWidth={1.5} />
         </div>
@@ -633,9 +637,18 @@ const ScrollToTop = ({ show }) => (
     </button>
   </motion.div>
 );
-
 const App = () => {
   const [scrolled, setScrolled] = React.useState(false);
+  const [selectedProject, setSelectedProject] = React.useState(null);
+  const [currentImgIndex, setCurrentImgIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    if (selectedProject) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [selectedProject]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -647,11 +660,11 @@ const App = () => {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <ScrollToTop show={scrolled} />
+      <ScrollToTop show={scrolled && !selectedProject} />
       {/* Stationary Header at the very top */}
       <div className="fixed top-0 left-0 right-0 z-100 flex justify-center pointer-events-none">
         <div
-          className={`w-full max-w-[1440px] pointer-events-auto px-4 md:px-8 transition-all duration-500 border
+          className={`w-full max-w-[96%] pointer-events-auto px-4 md:px-8 transition-all duration-500 border
             ${scrolled
               ? 'bg-[#08080a]/80 backdrop-blur-xl border-white/5 shadow-2xl mx-0 rounded-none border-t-0'
               : 'bg-transparent backdrop-blur-none border-transparent shadow-none mx-0 rounded-full'
@@ -669,12 +682,76 @@ const App = () => {
           <Hero />
           <About />
           <Services />
-          <Projects />
+          <Projects selectedProject={selectedProject} setSelectedProject={setSelectedProject} currentImgIndex={currentImgIndex} setCurrentImgIndex={setCurrentImgIndex} />
           <Experience />
           <Education />
           <Contact />
           <Footer />
         </div>
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[10001] bg-black/98 flex items-center justify-center p-4 md:p-10 overflow-hidden"
+            >
+              {/* Close Button - Top Right Floating */}
+              <button
+                className="absolute top-8 right-8 w-14 h-14 rounded-full bg-accent text-black shadow-[0_0_30px_rgba(0,245,212,0.4)] flex items-center justify-center z-[10002] transition-all hover:scale-110 active:scale-95 group border-none"
+                onClick={() => setSelectedProject(null)}
+              >
+                <X size={28} strokeWidth={3} className="transition-transform group-hover:rotate-90" />
+              </button>
+
+              {/* Download Button - Bottom Right Floating */}
+              <button
+                className="absolute bottom-8 right-8 w-14 h-14 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 shadow-2xl flex items-center justify-center z-[10002] transition-all hover:scale-110 active:scale-95 group"
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = selectedProject.images[currentImgIndex];
+                  link.download = `project-image-${currentImgIndex + 1}.png`;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                title="Télécharger l'image"
+              >
+                <DownloadCloud size={24} />
+              </button>
+
+              <div className="w-full max-w-[90vw] max-h-[90vh] relative flex items-center justify-center">
+                <div className="relative w-full h-full rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 flex items-center justify-center">
+                  <img
+                    src={selectedProject.images[currentImgIndex]}
+                    className="max-w-full max-h-[85vh] object-contain"
+                    alt={`Project image ${currentImgIndex + 1}`}
+                  />
+
+                  <div className="absolute inset-0 flex items-center justify-between px-4 md:px-10 pointer-events-none">
+                    <button
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white pointer-events-auto hover:bg-accent hover:text-black hover:scale-110 transition-all"
+                      onClick={() => setCurrentImgIndex(prev => (prev > 0 ? prev - 1 : selectedProject.images.length - 1))}
+                    >
+                      <ChevronLeft size={30} />
+                    </button>
+                    <button
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white pointer-events-auto hover:bg-accent hover:text-black hover:scale-110 transition-all"
+                      onClick={() => setCurrentImgIndex(prev => (prev < selectedProject.images.length - 1 ? prev + 1 : 0))}
+                    >
+                      <ChevronRight size={30} />
+                    </button>
+                  </div>
+
+                  {/* Image Counter Overlay */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-[10px] font-black tracking-widest text-gray-400">
+                    {currentImgIndex + 1} / {selectedProject.images.length}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
