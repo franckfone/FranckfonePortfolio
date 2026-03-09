@@ -24,7 +24,7 @@ import pbi3 from './assets/images/image projets PBI/image projets PBI/Capture d\
 import pbi4 from './assets/images/image projets PBI/image projets PBI/Capture d\'écran 2024-06-24 132642.png';
 import pbi5 from './assets/images/image projets PBI/image projets PBI/Capture d\'écran 2024-06-24 213752.png';
 import pbi6 from './assets/images/image projets PBI/image projets PBI/Capture d\'écran histogramme1.png';
-import pbi7 from './assets/images/image projets PBI/image projets PBI/c8.png';
+// import pbi7 from './assets/images/image projets PBI/image projets PBI/c8.png';
 import pbi8 from './assets/images/image projets PBI/image projets PBI/capture 0.png';
 // Ecoservice Project Images
 import eco1 from './assets/images/images projets Ecoservices/Capture d’écran 2026-03-08 114456.png';
@@ -34,6 +34,18 @@ import eco4 from './assets/images/images projets Ecoservices/Capture d’écran 
 import eco5 from './assets/images/images projets Ecoservices/Formulaire De connexion .png';
 import eco6 from './assets/images/images projets Ecoservices/Nos Services.png';
 import eco7 from './assets/images/images projets Ecoservices/nous contacter.png';
+// Docker Project Images
+import docker1 from './assets/images/images projet docker/Capture d’écran 2026-03-09 013429.png';
+import docker2 from './assets/images/images projet docker/Lister les networks.png';
+import docker3 from './assets/images/images projet docker/iiii.png';
+import docker4 from './assets/images/images projet docker/images projet docker .png';
+import docker5 from './assets/images/images projet docker/voir les stattuts en temp réel .png';
+// Centreon Project Images
+import cent1 from './assets/images/centron/c1.png';
+import cent2 from './assets/images/centron/c10.png';
+import cent3 from './assets/images/centron/c11.png';
+import cent4 from './assets/images/centron/list host.png';
+import cent5 from './assets/images/centron/service up.png';
 import cvFile from './assets/CV_FRANCK_FONE_FOTSI @.pdf';
 
 // --- Components ---
@@ -364,23 +376,7 @@ const Projects = ({ selectedProject, setSelectedProject, currentImgIndex, setCur
       tag: "Business Intelligence",
       description: "Conception et réalisation de dashboards interactifs pour l'analyse de performance. Visualisation de données complexes et aide à la décision stratégique basée sur des KPIs métiers.",
       tech: ["Power BI", "DAX", "SQL", "ETL"],
-      images: [pbi1, pbi2, pbi3, pbi4, pbi5, pbi6, pbi7, pbi8]
-    },
-    {
-      title: "Cloud Infrastructure",
-      category: "Programmation & DevOps",
-      tag: "DevOps",
-      description: "Architecture de déploiement continu utilisant Docker et GitHub Actions pour des applications à haute disponibilité.",
-      tech: ["Docker", "YAML", "CI/CD"],
-      images: []
-    },
-    {
-      title: "Data Tracker Pro",
-      category: "Analyse des données",
-      tag: "Analyse de Données",
-      description: "Outil interne de suivi et de fiabilisation des flux de données opérationnels. Dashboard interactif et reporting automatisé.",
-      tech: ["Python", "SQL", "React"],
-      images: []
+      images: [pbi1, pbi2, pbi3, pbi4, pbi5, pbi6, pbi8]
     },
     {
       title: "Ecoservice",
@@ -389,6 +385,22 @@ const Projects = ({ selectedProject, setSelectedProject, currentImgIndex, setCur
       description: "Solution logicielle complète pour la gestion des services écologiques. Développement d'une interface utilisateur intuitive et d'une architecture orientée services.",
       tech: ["React JS", "Node.js", "TailwindCSS"],
       images: [eco1, eco2, eco3, eco4, eco5, eco6, eco7]
+    },
+    {
+      title: "Projet Docker",
+      category: "Programmation & DevOps",
+      tag: "Infrastructure & Conteneurisation",
+      description: "Mise en place d'environnements virtualisés avec Docker. Gestion des réseaux, des volumes et orchestration de conteneurs pour des applications scalables.",
+      tech: ["Docker", "Linux", "Bash"],
+      images: [docker1, docker2, docker3, docker4, docker5]
+    },
+    {
+      title: "Monitorisation Centreon",
+      category: "Programmation & DevOps",
+      tag: "Supervision IT",
+      description: "Déploiement et configuration d'une solution de supervision Centreon. Monitoring des hôtes, des services et alertes en temps réel pour garantir la haute disponibilité.",
+      tech: ["Centreon", "SNMP", "Linux"],
+      images: [cent1, cent2, cent3, cent4, cent5]
     }
   ];
 
