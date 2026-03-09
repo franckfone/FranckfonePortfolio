@@ -46,6 +46,13 @@ import cent2 from './assets/images/centron/c10.png';
 import cent3 from './assets/images/centron/c11.png';
 import cent4 from './assets/images/centron/list host.png';
 import cent5 from './assets/images/centron/service up.png';
+// Chrono Explorer Project Images
+import chrono1 from './assets/images/Chrono Explorer/Capture d’écran 2026-03-03 110818.png';
+import chrono2 from './assets/images/Chrono Explorer/Capture d’écran 2026-03-03 110909.png';
+import chrono3 from './assets/images/Chrono Explorer/Capture d’écran 2026-03-03 110951.png';
+import chrono4 from './assets/images/Chrono Explorer/Capture d’écran 2026-03-03 111039.png';
+import chrono5 from './assets/images/Chrono Explorer/Capture d’écran 2026-03-03 111132.png';
+import chrono6 from './assets/images/Chrono Explorer/Capture d’écran 2026-03-03 111534.png';
 import cvFile from './assets/CV_FRANCK_FONE_FOTSI @.pdf';
 
 // --- Components ---
@@ -401,6 +408,14 @@ const Projects = ({ selectedProject, setSelectedProject, currentImgIndex, setCur
       description: "Déploiement et configuration d'une solution de supervision Centreon. Monitoring des hôtes, des services et alertes en temps réel pour garantir la haute disponibilité.",
       tech: ["Centreon", "SNMP", "Linux"],
       images: [cent1, cent2, cent3, cent4, cent5]
+    },
+    {
+      title: "Chrono Explorer",
+      category: "Programmation & DevOps",
+      tag: "Application de Gestion de Temps",
+      description: "Application intuitive pour le suivi et la gestion du temps. Fonctionnalités de chronométrage précises, historique des sessions et outils d'analyse de productivité.",
+      tech: ["JavaScript", "React", "TailwindCSS"],
+      images: [chrono1, chrono2, chrono3, chrono4, chrono5, chrono6]
     }
   ];
 
