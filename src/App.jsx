@@ -282,7 +282,7 @@ const About = () => (
         </Reveal>
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {[
-            { label: '5+ Ans', sub: 'Passion Tech' },
+            { label: '+5 Ans', sub: 'Passion Tech' },
             { label: 'Full Stack', sub: 'Java / React' },
             { label: 'DevOps', sub: 'CI/CD & Docker' },
             { label: 'Stats %', sub: 'Expert Data' }
