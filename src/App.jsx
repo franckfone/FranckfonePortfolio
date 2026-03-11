@@ -280,7 +280,7 @@ const About = () => (
             Actuellement en Master CTO & Tech Lead, je me spécialise dans les écosystèmes Java/Spring et DevOps, transformant des données complexes en solutions robustes.
           </p>
         </Reveal>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {[
             { label: '5+ Ans', sub: 'Passion Tech' },
             { label: 'Full Stack', sub: 'Java / React' },
@@ -288,9 +288,9 @@ const About = () => (
             { label: 'Stats %', sub: 'Expert Data' }
           ].map((stat, i) => (
             <Reveal key={i} delay={0.1 * i}>
-              <div className="p-8 glow-card rounded-3xl h-full flex flex-col justify-center border-white/5">
-                <div className="text-2xl font-black text-white mb-1">{stat.label}</div>
-                <div className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">{stat.sub}</div>
+              <div className="p-4 sm:p-8 glow-card rounded-2xl sm:rounded-3xl h-full flex flex-col justify-center border-white/5">
+                <div className="text-lg sm:text-2xl font-black text-white mb-1 leading-tight">{stat.label}</div>
+                <div className="text-[7px] sm:text-[9px] font-bold text-gray-500 uppercase tracking-widest">{stat.sub}</div>
               </div>
             </Reveal>
           ))}
@@ -345,7 +345,7 @@ const Services = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[95%] mx-auto">
         {expertises.map((exp, i) => (
           <Reveal key={i} delay={0.1 * i}>
-            <div className="flex flex-col gap-6 p-8 glow-card rounded-3xl h-full group">
+            <div className="flex flex-col gap-6 p-6 sm:p-8 glow-card rounded-3xl h-full group">
               <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-accent/30 group-hover:bg-accent/5 transition-all">
                 <exp.icon size={28} className="text-white group-hover:text-accent transition-colors" />
               </div>
@@ -535,7 +535,7 @@ const Experience = () => {
       <div className="max-w-[95%] mx-auto space-y-8">
         {jobs.map((job, i) => (
           <Reveal key={i} y={50}>
-            <div className="flex flex-col md:flex-row justify-between gap-6 p-10 glow-card rounded-[2.5rem] group">
+            <div className="flex flex-col md:flex-row justify-between gap-6 p-6 md:p-10 glow-card rounded-[2.5rem] group">
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-[10px] font-black text-[#00f5d4] uppercase tracking-widest">{job.period}</span>
@@ -591,7 +591,7 @@ const Education = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[95%] mx-auto">
         {degrees.map((edu, i) => (
           <Reveal key={i} delay={0.1 * i}>
-            <div className={`p-8 rounded-3xl border h-full transition-all group hover:-translate-y-2 ${edu.current ? 'border-[#00f5d4]/50 bg-[#00f5d4]/5 shadow-[0_0_30px_rgba(0,245,212,0.1)]' : 'border-white/5 bg-white/5'} flex flex-col justify-between`}>
+            <div className={`p-6 sm:p-8 rounded-3xl border h-full transition-all group hover:-translate-y-2 ${edu.current ? 'border-[#00f5d4]/50 bg-[#00f5d4]/5 shadow-[0_0_30px_rgba(0,245,212,0.1)]' : 'border-white/5 bg-white/5'} flex flex-col justify-between`}>
               <div>
                 <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-4 block">{edu.year}</span>
                 <h4 className="text-xl font-black mb-2 leading-tight group-hover:text-[#00f5d4] transition-colors">{edu.title}</h4>
@@ -616,8 +616,8 @@ const Contact = () => (
         <div className="w-20 h-20 bg-[#00f5d4]/10 rounded-3xl flex items-center justify-center mb-10 border border-[#00f5d4]/20 shadow-[0_0_30px_rgba(0,245,212,0.1)]">
           <Mail size={36} className="text-[#00f5d4]" strokeWidth={1.5} />
         </div>
-        <h2 className="text-3xl md:text-7xl font-black italic mb-8 tracking-normal px-4 pr-10 leading-[1.4]">
-          Prêt à <span className="text-gradient p-3">collaborer ?</span>
+        <h2 className="text-3xl md:text-7xl font-black italic mb-8 tracking-normal px-4 md:pr-10 leading-[1.4]">
+          Prêt à <span className="text-gradient p-2 md:p-3">collaborer ?</span>
         </h2>
         <p className="text-gray-400 mb-12 max-w-md mx-auto font-medium text-lg leading-relaxed">
           Que ce soit pour un nouveau projet web ou pour renforcer votre infrastructure, je suis à votre écoute.
