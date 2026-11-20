@@ -370,6 +370,15 @@ const Projects = ({ selectedProject, setSelectedProject, currentImgIndex, setCur
 
   const projects = [
     {
+      title: "Assistant de candidature",
+      category: "Programmation & DevOps",
+      tag: "Agent IA & RAG",
+      description: "Agent IA qui analyse une offre et prépare une candidature honnête. Appel d'outils (tool calling), recherche hybride BM25 + embeddings et garde-fou anti-hallucination. 15 tests, CI GitHub Actions.",
+      tech: ["TypeScript", "React", "Node.js", "RAG"],
+      images: [],
+      link: "https://github.com/franckfone/assistant-candidature"
+    },
+    {
       title: "Archeo-IT",
       category: "Programmation & DevOps",
       tag: "Patrimoine & Numérique",
@@ -490,6 +499,11 @@ const Projects = ({ selectedProject, setSelectedProject, currentImgIndex, setCur
                       <span key={t} className="text-[10px] font-black px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/50">{t}</span>
                     ))}
                   </div>
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-black text-accent uppercase tracking-widest hover:underline">
+                      <Github size={12} /> Voir le code
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
