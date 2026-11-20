@@ -138,7 +138,7 @@ const Navbar = ({ scrolled }) => {
         </div>
 
         <div className="hidden lg:flex gap-6 items-center border-l border-white/10 pl-6">
-          <a href="https://www.linkedin.com/in/franck-fone-fotsi-381ba42b5/" className="text-sm font-black text-gray-400 hover:text-accent transition-colors tracking-widest uppercase">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/franck-fone-fotsi/" className="text-sm font-black text-gray-400 hover:text-accent transition-colors tracking-widest uppercase">LinkedIn</a>
           <a href="https://github.com/franckfone" className="text-gray-400 hover:text-accent transition-colors group">
             <GithubIcon size={16} />
           </a>
@@ -174,7 +174,7 @@ const Navbar = ({ scrolled }) => {
             ))}
             <div className="w-12 h-px bg-white/5 my-2"></div>
             <div className="flex gap-10">
-              <a href="https://www.linkedin.com/in/franck-fone-fotsi-381ba42b5/" className="text-gray-400 hover:text-[#00f5d4] transition-colors">
+              <a href="https://www.linkedin.com/in/franck-fone-fotsi/" className="text-gray-400 hover:text-[#00f5d4] transition-colors">
                 <Linkedin size={20} />
               </a>
               <a href="https://github.com/franckfone" className="text-gray-400 hover:text-[#00f5d4] transition-colors">
@@ -638,7 +638,7 @@ const Footer = () => (
     <p className="text-xs text-gray-500 font-bold tracking-widest uppercase">© {new Date().getFullYear()} Franck Fone. SYSTEM_INIT_SUCCESS</p>
     <div className="flex gap-10">
       {[
-        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/franck-fone-fotsi-381ba42b5/' },
+        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/franck-fone-fotsi/' },
         { name: 'Github', url: 'https://github.com/franckfone' },
         { name: 'Instagram', url: '#' }
       ].map((social) => (
